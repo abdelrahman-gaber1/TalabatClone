@@ -2,7 +2,7 @@
 {
     public class Session1
     {
-        //   16    +     9
+        //9
         #region ProductModule
         //we will not connect our Layers now until we need it 
         //First thing we need to determine is architecture pattern : Union Architecture 
@@ -158,7 +158,15 @@
         #endregion
 
         #region GetProductEndPoint
-
+        //First Determine type of method(EndPoint)
+        //To Reach to this method you must write BaseUrl/api/products
+        //There is helper method called ok to return statues code 200 
+        //EndPoint return Json File
+        //We Reach to EndPoint Using Method and Take parameter or Not
+        //We have Problem there is no example of data send by endpoint
+        //We need to Determine type of data we return but in this case we can't use helper method like ok
+        //If There is exception we can't return BadRequest because we return IEnumerable only
+        //so WE will Return Action Result of What I Want to return like IEnumerable
         #endregion
     }
 }
