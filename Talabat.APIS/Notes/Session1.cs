@@ -158,15 +158,30 @@
         #endregion
 
         #region GetProductEndPoint
-        //First Determine type of method(EndPoint)
+        //First Determine type of method(EndPoint)  
         //To Reach to this method you must write BaseUrl/api/products
+        //I retrun IActionResult because i have spicial type of this end point 
         //There is helper method called ok to return statues code 200 
         //EndPoint return Json File
-        //We Reach to EndPoint Using Method and Take parameter or Not
+        //We Reach to EndPoint Using Method and Take parameter or Not 
         //We have Problem there is no example of data send by endpoint
         //We need to Determine type of data we return but in this case we can't use helper method like ok
         //If There is exception we can't return BadRequest because we return IEnumerable only
         //so WE will Return Action Result of What I Want to return like IEnumerable
+        //so I can retrurn json file and statue code 
+        //Note this end point will retrun brand and category with null
+        //because relative data(relation) we must use egger loading(include this data) 
+        //Note I didn't Know type of T so i can't include brand and category 
+        //Make Represintaion for Eeach EndPoint in postman
+        //make collection and folder for each Module Determine Method and URL
+        //To prevent add base url in each requset make local variabel(Collection)
+        #endregion
+
+        #region GetProductById
+        //You must make method take parameter to differ between this EndPoint and GetProduct 
+        //To Reach to this method you must write BaseUrl/api/products/1 
+        //We Went to make responce of all error have same shape  
+        //so we will make class to represent shape of error (only massage and status code)
         #endregion
     }
 }
