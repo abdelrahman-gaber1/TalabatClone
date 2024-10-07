@@ -2,7 +2,6 @@
 {
     public class Session1
     {
-        //9
         #region ProductModule
         //we will not connect our Layers now until we need it 
         //First thing we need to determine is architecture pattern : Union Architecture 
