@@ -1,33 +1,41 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Talabat.APIS.DTOs;
 using Talabat.Core.Models;
 using Talabat.Core.Repositories.Contract;
-  
+using Talabat.Core.Specification;
+using Talabat.Core.Specification.ProductSpecification;
+
 namespace Talabat.APIS.Controllers
 {
     public class ProductsController : BaseApiController
     {
         private readonly IGenericRepository<Product> _prodictRepo;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IGenericRepository<Product> prodictRepo)
+        public ProductsController(IGenericRepository<Product> prodictRepo , IMapper mapper)
         {
             _prodictRepo = prodictRepo;
+            _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
         {
-            var products =await _prodictRepo.GetAllAsync();
-            return Ok(products);
+            var spec = new ProductWithBrandCategorySpecification();
+            var products =await _prodictRepo.GetAllWithSpecAsync(spec);
+            return Ok(_mapper.Map<IEnumerable<Product>,IEnumerable<ProductDto>>(products));
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
-            var product = await _prodictRepo.GetAsync(id);
+            var spec = new ProductWithBrandCategorySpecification(id);
+            var product = await _prodictRepo.GetWithSpecAsync(spec);
             if(product == null)
             {
                 return NotFound(new {massage = "Not Found" , statusCode = 404});
             }
-            return Ok(product);
+            return Ok(_mapper.Map<Product,ProductDto>(product));
         }
     }
 }
