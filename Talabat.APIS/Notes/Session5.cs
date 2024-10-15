@@ -20,7 +20,9 @@
         //We have 4 Operator for Sorting In Linq (OrderBy-OrderByDesc-ThenBy-ThenByDesc)
         //I Want to added to Query That I built OrderBy So I must add it in Sepecification That i use it to Built Query
         //Make Method To Initialize OrderBy Expression and OrderByDesc Expression  
+        //Not We can Make Sort By using this method or didn't use Sort by ignore this Method
         #endregion
     }
 
 }
+ 
