@@ -20,11 +20,11 @@ namespace Talabat.APIS.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
         {
             var spec = new ProductWithBrandCategorySpecification();
             var products =await _prodictRepo.GetAllWithSpecAsync(spec);
-            return Ok(_mapper.Map<IEnumerable<Product>,IEnumerable<ProductDto>>(products));
+            return Ok(_mapper.Map<IReadOnlyList<Product>,IReadOnlyList<ProductDto>>(products));
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> GetProduct(int id)
