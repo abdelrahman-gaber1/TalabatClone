@@ -15,8 +15,11 @@
         //We want to sort Product that come from end Point by any thing (ex:Name-Price => Asending or Desinding )
         //Data is Sorted in Database by PK and data return in this Sorting
         //so we want to have apility to sort by any thing 
-        //We Make Sort Based on What Bussiness need (In Our Bussiness Name - Price - Default)
-        //We want to Send To GetProduct Pramater to detect What we will sort by (Name - Price - Default)
+        //We Make Sort Based on What Bussiness need (In Our Bussiness => Name - Price - Default)
+        //We want to Send To GetProduct Pramater(Query String) to detect What we will sort by (Name - Price - Default)
+        //We have 4 Operator for Sorting In Linq (OrderBy-OrderByDesc-ThenBy-ThenByDesc)
+        //I Want to added to Query That I built OrderBy So I must add it in Sepecification That i use it to Built Query
+        //Make Method To Initialize OrderBy Expression and OrderByDesc Expression  
         #endregion
     }
 
