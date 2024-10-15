@@ -58,26 +58,26 @@ namespace Talabat.APIS.Notes
         //we went to use GetAllWithSpecification to GetProduct (EndPoint) instead of GetAll
         //when you create object of BaseSpecification the includes refer to object empty 
         //because we didn't include what we want ex Brand Category 
-        //we can't include it in constractor of BaseSpecification because we didn't know type of T
-        //BaseSpecification class to work with all Model (Genaric)
+        //we can't include it in constructor of BaseSpecification because we didn't know type of T
+        //BaseSpecification class to work with all Model (Generic)
         //we went to create class specification for each model to include what we want ex Brand Category
         //now we will create object of class model specification
         //T is defined on level of method or class
         #endregion
 
         #region RefactorGetProductsByIdUsingSpecification
-        //we went to send id to Product Specification using pramaterized constractor
-        //this pramaterized constractor will chain in pramaterized constractor(Take Criteria Expresion) in Base Constractor
+        //we went to send id to Product Specification using parameterized constructor
+        //this parameterized constructor will chain in parameterized constructor(Take Criteria Expression) in Base Constructor
         #endregion
 
         #region ProductDTOAutoMapper
-        //Note Json File that i will send to FrontEnd preffer not include nested
-        //(I didnt need to return id in brand to front because you retuen it already)
+        //Note Json File that i will send to FrontEnd prefer not include nested
+        //(I didn't need to return id in brand to front because you return it already)
         //so i don't need to return model i need to return DTO(as view model in MVC)
-        //so i will make class product DTO(Data Transfer Object) to contral shape of Json File
-        //I want to convert product to product Dto then return it using product Dto or oppsite
-        //in Dto i will add property for id and not inhiret it becasue it is not table so can't send it to ISpecification
-        //in Dto i wan't to send only name of brand and category without id 
+        //so i will make class product DTO(Data Transfer Object) to control shape of Json File
+        //I want to convert product to product Dto then return it using product Dto or opposite
+        //in Dto i will add property for id and not inherit it because it is not table so can't send it to ISpecification
+        //in Dto i won't to send only name of brand and category without id 
         //Then i want to convert product to product Dto(Mapping Manual or Automatic)
         //You Need object of IMapper to make Automatic mapping and add this service in DI
         //This Service Take object from MappingProfile that implement profile class
@@ -92,10 +92,10 @@ namespace Talabat.APIS.Notes
         //when mapping we will map PictureUrl and adding baseurl to him 
         //Note add baseUrl Dynamic not static because it differ from one environment to another
         //Add Url Setting in AppSetting then read it in mappingProfile 
-        //Note to reach to AppSetting you need object from Configration but we can't do it 
-        //because we use ParamaterLess constractor to create mappingProfile and there is no ParamaterLess constractor and we can't send configration
+        //Note to reach to AppSetting you need object from Configuration but we can't do it 
+        //because we use ParamaterLess constructor to create mappingProfile and there is no ParamaterLess constructor and we can't send configuration
         //we have override of mapfrom that take value resolver class (to add base url)
-        //to send class to mappfrom must implement interface ivalueresolver  
+        //to send class to mapfrom must implement interface IValuereSolver  
         //IValueResolver <Source , Destination , type of thing you want to resolve> 
         #endregion
 

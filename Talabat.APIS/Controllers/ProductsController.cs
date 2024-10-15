@@ -14,9 +14,9 @@ namespace Talabat.APIS.Controllers
         private readonly IGenericRepository<Product> _prodictRepo;
         private readonly IMapper _mapper;
 
-        public ProductsController(IGenericRepository<Product> prodictRepo , IMapper mapper)
+        public ProductsController(IGenericRepository<Product> productRepo , IMapper mapper)
         {
-            _prodictRepo = prodictRepo;
+            _prodictRepo = productRepo;
             _mapper = mapper;
         }
         [HttpGet]
